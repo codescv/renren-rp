@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+
+  "name": "Auto RP collection of renren",
+  "description": "This extension ",
+  "version": "1.0",
+  "permissions": [
+     "tabs",
+     "storage"
+  ],
+  
+  
+
+  "page_action": {
+    "default_icon": {                    // optional
+      "19": "images/icon.png",           // optional
+      "38": "images/icon.png"            // optional
+    },
+    "default_title": "RP collect",      // optional; shown in tooltip
+    "default_popup": "options.html"        // optional
+  },
+  
+  "options_page": "options.html",
+  
+  "content_scripts": [
+    {
+      "matches": ["*://renren.com/*", "*://*.renren.com/*"],
+      "js": ["jquery.js", "filter.js"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "background": {
+    "scripts": ["popup.js"]
+  }
+  
+}
